@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./signup.module.scss";
 import salaarBg from "../../assets/bb_pb.png";
+import Button from "../../components/atoms/Button";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -19,9 +20,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Signup Data:", formData);
-    // Add your signup logic here
-    // After successful signup, navigate to login
-    navigate("/login");
+    navigate("/login")
   };
 
   return (
@@ -99,6 +98,7 @@ const Signup = () => {
           <button type="submit" className={styles.submitButton}>
             Sign Up
           </button>
+          {/* <Button text={"Sign Up"} clickhandler={() => navigate("/login")} /> */}
 
           <p>
             Already have an account? <Link to="/login">Login</Link>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./login.module.scss";
 import Logo from "../../assets/logo.png";
+// import Button from "../../components/atoms/Button";
 import Rebel from "../../assets/rebel.png";
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
-    navigate("/");
+    navigate("/")
   };
 
   return (
@@ -47,6 +48,8 @@ const Login = () => {
           <button type="submit" className={styles.submitButton}>
             Login
           </button>
+
+          {/* <Button text={"Login"} clickHandler={() => navigate("/")} /> */}
 
           <p>
             Don't have an account? <Link to="/signup">Sign Up</Link>
