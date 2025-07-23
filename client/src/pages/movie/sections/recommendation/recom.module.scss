@@ -1,50 +1,42 @@
 .container {
-  margin-top: 150px;
   display: flex;
   gap: 20px;
-  padding: 0 40px;
+  padding: 3% 10%;
   flex-direction: column;
-  margin-bottom: 150px;
 
   > header {
     display: flex;
-    align-items: center;
+    width: 100%;
     justify-content: space-between;
 
-    h2 {
-      font-size: var(--fs-xl);
+    > h2 {
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-medium);
     }
 
-    span {
+    > span {
       display: flex;
       gap: 5px;
-      cursor: pointer;
       color: var(--grey);
       align-items: center;
-      font-size: var(--fs-md);
 
-      svg {
-        width: 15px;
-        height: 15px;
+      > svg {
+        width: 20px;
       }
     }
   }
 
-  .movies {
+  > ul {
     display: grid;
     gap: 20px;
-    margin-top: 25px;
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .buttonWrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    >Button {
-      width: 159px;
-      height: 42px;
-      border-radius: 6px;
-    }
+  > .showMoreBtn {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-top: 40px;
+    border-radius: var(--border-radius);
   }
 }

@@ -1,39 +1,31 @@
-import React from "react";
-import styles from "./recom.module.scss";
-import { useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
-import Card from "../../../../components/molecules/card";
-import movies from "../../../../data/movies.json";
+import React from "react";
+
+import recommendation from "../../../../data/recommendation.json";
 import Button from "../../../../components/atoms/Button";
+import Card from "../../../../components/molecules/card";
+import styles from "./recom.module.scss";
 
 function Recommendation() {
-  const navigate = useNavigate();
-  function handle() {
-    console.log("recommendation");
-  }
+  const handleShowMore = () => {
+    console.log("Show More clicked!");
+  };
+
   return (
     <section className={styles.container}>
       <header>
-        <h2>You May Also Like</h2>
+        <h2>You Also May Like </h2>
         <span>
-          View All <Icon icon={"mdi-light:arrow-right"} />
+          View All <Icon icon={"icons8:right-arrow"} />
         </span>
       </header>
-      <div className={styles.movies}>
-        {movies.slice(0, 4).map((movie, i) => {
-          return (
-            <Card
-              {...movie}
-              key={movie.id}
-              clickHandler={() => navigate(`/${movie.id}`)}
-            />
-          );
+      <ul>
+        {recommendation.map((recom, i) => {
+          return <Card key={i} {...recom} />;
         })}
-      </div>
+      </ul>
 
-      <div className={styles.buttonWrapper}>
-        <Button text={"Show More"} onClick={handle} />
-      </div>
+      <Button text={"Show more"} clickHandler={handleShowMore} className={styles.showMoreBtn} />
     </section>
   );
 }

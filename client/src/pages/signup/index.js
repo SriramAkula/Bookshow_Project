@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./signup.module.scss";
-import salaarBg from "../../../assets/bb_pb.png";
+import salaarBg from "../../assets/bb_pb.png";
 
 const Signup = () => {
   const navigate = useNavigate();

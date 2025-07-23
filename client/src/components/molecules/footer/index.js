@@ -15,9 +15,8 @@ function Footer() {
             <img src={BrandLogo} alt={"brand-logo"} />
           </div>
           <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a type specimen book.
           </p>
           <div className={styles["app-install"]}>
             <img src={PlayStore} alt={"playstore-logo"} />
@@ -45,9 +44,7 @@ function Footer() {
         </div>
       </div>
       {/* Bottom Row */}
-      <div className={styles.subFooter}>
-        Copyright 2025 © GreatStack. All Right Reserved.
-      </div>
+      <div className={styles.subFooter}>Copyright 2025 © GreatStack. All Right Reserved.</div>
     </footer>
   );
 }

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./login.module.scss";
-import Logo from "../../../assets/logo.png";
-import Rebel from "../../../assets/rebel.png";
+import Logo from "../../assets/logo.png";
+import Rebel from "../../assets/rebel.png";
 
 const Login = () => {
   const navigate = useNavigate();
