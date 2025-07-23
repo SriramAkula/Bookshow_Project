@@ -1,81 +1,89 @@
 .container {
+  margin-top: 10%;
   display: flex;
+  gap: 50px;
+  height: 100vh;
+  padding: 0 10%;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 40px 100px;
-  gap: 30px;
-  color: var(--white);
-  margin-top: 150px;
-  margin-left: 70px;
-}
+  justify-content: center;
 
-.container1 {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+  > article {
+    display: flex;
+    gap: 1rem;
 
-  > img {
-    height: 420px;
-    width: 280px;
-    border-radius: 18px;
-    object-fit: cover;
-  }
-}
+    > img {
+      max-width: 300px;
+    }
 
-.container2 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 600px;
+    figcaption {
+      display: flex;
+      flex-direction: column;
 
-  > h4 {
-    color: var(--red);
-    font-weight: 500;
-  }
+      > .mainContent {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
 
-  > h1 {
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0;
-  }
+        > h3 {
+          color: var(--red);
+          font-size: var(--fs-xl);
+          font-weight: var(--fw-medium);
+        }
 
-  > p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-}
+        > h1 {
+          font-size: var(--fs-5xl);
+        }
 
-.para {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #99a1af;
-  margin: 8px 0;
-}
+        > .rating {
+          > svg {
+            > path {
+              fill: var(--red);
+            }
+          }
 
-.last {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 16px;
+          > span {
+            font-size: var(--fs-md);
+          }
+        }
 
-  button {
-    width: 135px;
-    height: 44px;
-    border-radius: 6px;
-    font-weight: 500;
-  }
-}
+        > p {
+          width: 80%;
+          color: var(--grey);
+          font-size: var(--fs-md);
+        }
+      }
 
-.likeButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 1.5rem;
 
-  &:hover {
-    transform: scale(1.1);
+        > button {
+          width: auto;
+          height: auto;
+          padding: 12px 22px;
+
+          &.trailer {
+            background-color: var(--secondary-dark);
+          }
+        }
+
+        .wishlist {
+          display: flex;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--secondary-dark);
+
+          > svg {
+            width: 25px;
+            height: 25px;
+            color: var(--white);
+          }
+        }
+      }
+    }
   }
 }
