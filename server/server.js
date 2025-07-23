@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors=require("cors")
 //.env
 require("dotenv").config();
 //db connection
@@ -15,6 +16,10 @@ const userRouter = require("./src/routers/user.route");
 
 //Middlewares
 app.use(logMiddleware);
+
+app.use(cors({
+    origin: "localhost:3001"
+}))
 
 app.use("/api/users", userRouter);
 // app.use("/movies", moviesRouter);
