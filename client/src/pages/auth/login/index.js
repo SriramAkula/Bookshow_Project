@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./login.module.scss";
 import Logo from "../../../assets/logo.png";
+// import Thor from "../../../assets/Thor.png";
 import Rebel from "../../../assets/rebel.png";
 
 const Login = () => {
