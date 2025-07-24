@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import styles from "./signup.module.scss";
 import salaarBg from "../../assets/bb_pb.png";
 import Button from "../../components/atoms/Button";
+import { signupUser } from "../../apis/users";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -17,10 +18,43 @@ const Signup = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Signup Data:", formData);
-    navigate("/login")
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      if (
+        !formData.name ||
+        !formData.email ||
+        !formData.password ||
+        !formData.confirmPassword
+      ) {
+        toast.error("Please fill all fields.");
+        return;
+      }
+      if (formData.password !== formData.confirmPassword) {
+        toast.error("Passwords do not match.");
+        return;
+      }
+
+      const result = await signupUser({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      toast.success(result.data.result || "Signup successful!");
+      navigate("/login");
+    } catch (error) {
+      const status = error?.response?.status;
+      const message = error?.response?.data?.error || "Something went wrong";
+      if (status === 409) {
+        toast.error(message); 
+      } else if (status === 400) {
+        toast.error(message);
+      } else {
+        toast.error("Unexpected error. Please try again.");
+        console.error(error);
+      }
+    }
   };
 
   return (
@@ -94,11 +128,8 @@ const Signup = () => {
             />
             <label htmlFor="togglePassword">Show Password</label>
           </div>
-          
-          <button type="submit" className={styles.submitButton}>
-            Sign Up
-          </button>
-          {/* <Button text={"Sign Up"} clickhandler={() => navigate("/login")} /> */}
+
+          <Button text={"Sign Up"} className={styles.submitButton} />
 
           <p>
             Already have an account? <Link to="/login">Login</Link>
